@@ -1,0 +1,145 @@
+[gd_scene load_steps=4 format=3 uid="uid://cioe4lldrg2aj"]
+
+[ext_resource type="Theme" uid="uid://wxv3lqylh25j" path="res://graphics/themes/button_theme.tres" id="1_6q727"]
+[ext_resource type="Script" path="res://scripts/SoundBoard.cs" id="1_658p2"]
+[ext_resource type="Texture2D" uid="uid://csbcchlr0pw24" path="res://graphics/setting.png" id="1_amvch"]
+
+[node name="SoundBoard" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_658p2")
+
+[node name="SFX" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0666667
+anchor_top = 0.05
+anchor_right = 0.933333
+anchor_bottom = 0.7
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 16
+columns = 3
+metadata/_edit_use_anchors_ = true
+metadata/_edit_group_ = true
+
+[node name="SFXButton1" type="Button" parent="SFX"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_6q727")
+text = "sfx1"
+icon_alignment = 1
+
+[node name="SFXButton2" type="Button" parent="SFX"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_6q727")
+text = "sfx2"
+icon_alignment = 1
+
+[node name="SFXButton3" type="Button" parent="SFX"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_6q727")
+text = "sfx3"
+icon_alignment = 1
+
+[node name="SFXButton4" type="Button" parent="SFX"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_6q727")
+text = "sfx4"
+icon_alignment = 1
+
+[node name="SFXButton5" type="Button" parent="SFX"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_6q727")
+text = "sfx5"
+icon_alignment = 1
+
+[node name="SFXButton6" type="Button" parent="SFX"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_6q727")
+text = "sfx6"
+icon_alignment = 1
+
+[node name="SFXButton7" type="Button" parent="SFX"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_6q727")
+text = "sfx7"
+icon_alignment = 1
+
+[node name="SFXButton8" type="Button" parent="SFX"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_6q727")
+text = "sfx8"
+icon_alignment = 1
+
+[node name="SFXButton9" type="Button" parent="SFX"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_6q727")
+text = "<null>"
+icon_alignment = 1
+
+[node name="Options" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(418, 128)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.067
+anchor_top = 0.750188
+anchor_right = 0.937
+anchor_bottom = 0.950188
+offset_left = -0.160002
+offset_top = -0.120026
+offset_right = 0.23996
+offset_bottom = -0.119995
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
+
+[node name="MuteButton" type="Button" parent="Options"]
+custom_minimum_size = Vector2(272, 128)
+layout_mode = 2
+theme = ExtResource("1_6q727")
+theme_override_font_sizes/font_size = 48
+text = "MUTE"
+
+[node name="SettingsButton" type="Button" parent="Options"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+icon = ExtResource("1_amvch")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Audio" type="Node" parent="."]

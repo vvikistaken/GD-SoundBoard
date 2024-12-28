@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://biplif0vtkl7k"]
+
+[ext_resource type="Script" path="res://scripts/SfxPlayer.cs" id="2_ggm2u"]
+
+[node name="SFXPlayer" type="AudioStreamPlayer"]
+script = ExtResource("2_ggm2u")

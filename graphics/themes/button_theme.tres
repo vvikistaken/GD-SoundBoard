@@ -1,0 +1,11 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://wxv3lqylh25j"]
+
+[ext_resource type="FontFile" uid="uid://y7vkond0663t" path="res://graphics/basefont.png" id="1_sgqvw"]
+
+[sub_resource type="FontVariation" id="FontVariation_xops0"]
+base_font = ExtResource("1_sgqvw")
+spacing_glyph = -6
+
+[resource]
+Button/font_sizes/font_size = 10
+Button/fonts/font = SubResource("FontVariation_xops0")
