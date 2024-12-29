@@ -19,6 +19,10 @@ config/icon="res://resources/graphics/icon.svg"
 
 buses/default_bus_layout="res://resources/sfx/default_bus_layout.tres"
 
+[autoload]
+
+ConfigFileHandler="*res://scripts/globals/ConfigFileHandler.cs"
+
 [display]
 
 window/size/viewport_width=480

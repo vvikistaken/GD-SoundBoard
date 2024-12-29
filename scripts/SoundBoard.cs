@@ -48,7 +48,7 @@ public partial class SoundBoard : Panel
 
         var sfxPlayer = sfxPlayerScene.Instantiate<SfxPlayer>();
         audio.AddChild(sfxPlayer);
-        sfxPlayer.PlaySFXviaFileName("Library of Ruina SFX - Click Dice Roll Finger Snap.mp3");
+        sfxPlayer.PlaySFXviaFileName(ConfigFileHandler.SFXFilePaths[index]);
     }
     private void MuteCurrentAudios(){
         muteButton.GrabFocus();
@@ -62,13 +62,4 @@ public partial class SoundBoard : Panel
 
         GD.Print("Settings button pressed");
     }
-    // config file
-    private void CheckConfigFile(){
-        if( !File.Exists("res://resources/config.json")){
-            var config = new ConfigFile();
-            config.SetValue("SFX", "1", Path.Combine(Directory.GetCurrentDirectory(), "resources", "sfx", "Library of Ruina SFX - Click Dice Roll Finger Snap.mp3"));
-        }
-        
-    }
-    
 }
