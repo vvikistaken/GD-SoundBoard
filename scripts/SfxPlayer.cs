@@ -3,21 +3,36 @@ using System.IO;
 
 public partial class SfxPlayer : AudioStreamPlayer
 {
-    private string CurrentFilePath = Directory.GetCurrentDirectory();
     public override void _Ready()
     {
         Finished += QueueFree;
     }
-    public void PlaySFXviaFileName(string fileName)
+    public void PlaySFXviaFileName(string filePath)
     {
-        Stream = LoadMP3($"res://sfx/{fileName}");
+        AudioStream sound;
+        if(filePath.Contains("\\") || filePath.Contains("/"))
+            sound = LoadExternalMP3(filePath);
+        else
+            sound = LoadLocalMP3(filePath);
+
+        Stream = sound;
         Play();
     }
-    public AudioStreamMP3 LoadMP3(string path)
+    private AudioStream LoadLocalMP3(string fileName)
     {
-        using var file = Godot.FileAccess.Open(path, Godot.FileAccess.ModeFlags.Read);
-        var sound = new AudioStreamMP3();
-        sound.Data = file.GetBuffer((long)file.GetLength());
-        return sound;
+        using var file = Godot.FileAccess.Open("res://resources/sfx/"+fileName, Godot.FileAccess.ModeFlags.Read);
+        var mp3 = new AudioStreamMP3();
+        mp3.Data = file.GetBuffer((long)file.GetLength());
+        return mp3;
+    }
+    private AudioStream LoadExternalMP3(string path)
+    {
+        using var fs = new FileStream(path, FileMode.Open, System.IO.FileAccess.Read);
+        byte[] fileData = new byte[fs.Length];
+        fs.Read(fileData, 0, fileData.Length);
+
+        var mp3 = new AudioStreamMP3();
+        mp3.Data = fileData;
+        return mp3;
     }
 }

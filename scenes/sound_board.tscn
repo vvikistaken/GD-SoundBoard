@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://cioe4lldrg2aj"]
 
-[ext_resource type="Theme" uid="uid://wxv3lqylh25j" path="res://graphics/themes/button_theme.tres" id="1_6q727"]
+[ext_resource type="Theme" uid="uid://wxv3lqylh25j" path="res://resources/graphics/themes/button_theme.tres" id="1_6q727"]
 [ext_resource type="Script" path="res://scripts/SoundBoard.cs" id="1_658p2"]
-[ext_resource type="Texture2D" uid="uid://csbcchlr0pw24" path="res://graphics/setting.png" id="1_amvch"]
+[ext_resource type="Texture2D" uid="uid://csbcchlr0pw24" path="res://resources/graphics/setting.png" id="1_amvch"]
 
 [node name="SoundBoard" type="Panel"]
 anchors_preset = 15
@@ -10,8 +10,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("1_658p2")
 
 [node name="SFX" type="GridContainer" parent="."]

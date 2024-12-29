@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bbtjjprdjha6c"
+path="res://.godot/imported/Library of Ruina SFX - Click Dice Roll Finger Snap.mp3-a8457d56207188a84f0676aac6d33bc4.mp3str"
+
+[deps]
+
+source_file="res://resources/sfx/Library of Ruina SFX - Click Dice Roll Finger Snap.mp3"
+dest_files=["res://.godot/imported/Library of Ruina SFX - Click Dice Roll Finger Snap.mp3-a8457d56207188a84f0676aac6d33bc4.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
