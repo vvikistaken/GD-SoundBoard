@@ -12,7 +12,7 @@ public partial class ConfigFileHandler : Node
     {
         SetConfigFileValue(1, @"C:\Users\cebda\Music\sfx\Library of Ruina SFX - Click Dice Roll Finger Snap.mp3");
         SetConfigFileValue(2, @"C:\Users\cebda\Music\sfx\Limbus Company SFX - Staggered.mp3");
-        SetConfigFileValue(3, @"Library of Ruina - RoundStart.wav");
+        SetConfigFileValue(3, @"C:\Users\cebda\Music\sfx\Library of Ruina - RoundStart.mp3");
         SetConfigFileValue(4, @"C:\Users\cebda\Music\Kether battle 3.mp3");
         LoadConfigFile();
     }

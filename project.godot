@@ -22,6 +22,7 @@ buses/default_bus_layout="res://resources/sfx/default_bus_layout.tres"
 [autoload]
 
 ConfigFileHandler="*res://scripts/globals/ConfigFileHandler.cs"
+GlobalInputHandler="*res://scripts/globals/GlobalInputHandler.cs"
 
 [display]
 
