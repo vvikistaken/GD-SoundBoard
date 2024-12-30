@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.IO;
+using KeyCode = GlobalInputHandler.KeyCode;
 
 public partial class SoundBoard : Panel
 {
@@ -43,7 +44,7 @@ public partial class SoundBoard : Panel
     }
 
     private void OnSFXButtonPressed(int index){
-        //GD.Print($"Current button: {sfxButtons[index].Name}");
+        GD.Print($"Current button: {sfxButtons[index].Name}");
         sfxButtons[index].GrabFocus();
 
         var sfxPlayer = sfxPlayerScene.Instantiate<SfxPlayer>();
@@ -62,4 +63,40 @@ public partial class SoundBoard : Panel
 
         GD.Print("Settings button pressed");
     }
+    /* 
+    private void OnUnfocusedKeyPressed(int vkCode){
+        switch((KeyCode)vkCode){
+            case KeyCode.Num1:
+                OnSFXButtonPressed(0);
+            break;
+            case KeyCode.Num2:
+                OnSFXButtonPressed(1);
+            break;
+            case KeyCode.Num3:
+                OnSFXButtonPressed(2);
+            break;
+            case KeyCode.Num4:
+                OnSFXButtonPressed(3);
+            break;
+            case KeyCode.Num5:
+                OnSFXButtonPressed(4);
+            break;
+            case KeyCode.Num6:
+                OnSFXButtonPressed(5);
+            break;
+            case KeyCode.Num7:
+                OnSFXButtonPressed(6);
+            break;
+            case KeyCode.Num8:
+                OnSFXButtonPressed(7);
+            break;
+            case KeyCode.Num9:
+                OnSFXButtonPressed(8);
+            break;
+            case KeyCode.Num0:
+                MuteCurrentAudios();
+            break;
+        }
+    }
+    */
 }

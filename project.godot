@@ -29,6 +29,7 @@ GlobalInputHandler="*res://scripts/globals/GlobalInputHandler.cs"
 window/size/viewport_width=480
 window/size/viewport_height=640
 window/size/resizable=false
+window/size/always_on_top=true
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
