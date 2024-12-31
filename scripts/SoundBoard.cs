@@ -44,7 +44,7 @@ public partial class SoundBoard : Panel
     }
 
     private void OnSFXButtonPressed(int index){
-        GD.Print($"Current button: {sfxButtons[index].Name}");
+        //GD.Print($"Current button: {sfxButtons[index].Name}");
         sfxButtons[index].GrabFocus();
 
         var sfxPlayer = sfxPlayerScene.Instantiate<SfxPlayer>();
