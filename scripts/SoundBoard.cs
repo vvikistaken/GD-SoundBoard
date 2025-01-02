@@ -1,7 +1,6 @@
 using Godot;
 using System;
 using System.IO;
-using KeyCode = GlobalInputHandler.KeyCode;
 
 public partial class SoundBoard : Panel
 {
@@ -12,6 +11,12 @@ public partial class SoundBoard : Panel
     Button muteButton, settingsButton;
     public override void _Ready()
     {
+        // for debugging only
+        ConfigFileHandler.SetSFXPath(1, @"C:\Users\cebda\Music\sfx\Windows - connect.mp3");
+        ConfigFileHandler.SetSFXPath(2, @"C:\Users\cebda\Music\sfx\Windows - disconnect.mp3");
+        ConfigFileHandler.SetSFXPath(3, @"C:\Users\cebda\Music\インソムニア (INSOMNIA) Eve Music Video.mp3");
+        ConfigFileHandler.SetSFXPath(4, @"C:\Users\cebda\Music\Homelander Theme The Boys.mp3");
+
         audio = GetNode<Node>("Audio");
 
         for(int i = 0; i < sfxButtons.Length; i++){
@@ -25,6 +30,7 @@ public partial class SoundBoard : Panel
 
         settingsButton = GetNode<Button>("Options/SettingsButton");
         settingsButton.Pressed += OpenSettings;
+
     }
     public override void _Input(InputEvent @event)
     {

@@ -1,23 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://b464ucdbrqf37"]
+[gd_scene load_steps=5 format=3 uid="uid://b464ucdbrqf37"]
 
-[ext_resource type="FontFile" uid="uid://y7vkond0663t" path="res://resources/graphics/basefont.png" id="2_artrk"]
+[ext_resource type="Script" path="res://scripts/Settings.cs" id="1_3ahse"]
+[ext_resource type="FontFile" uid="uid://y7vkond0663t" path="res://resources/graphics/basefont.png" id="2_jhocp"]
 
 [sub_resource type="FontVariation" id="FontVariation_xops0"]
-base_font = ExtResource("2_artrk")
+base_font = ExtResource("2_jhocp")
 spacing_glyph = -6
 
 [sub_resource type="Theme" id="Theme_sbyv4"]
 Button/font_sizes/font_size = 10
 Button/fonts/font = SubResource("FontVariation_xops0")
 
-[node name="Setting" type="Panel"]
+[node name="Settings" type="Panel"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_3ahse")
 
-[node name="SFXOptions" type="VBoxContainer" parent="."]
+[node name="SFXOptionsList" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -25,25 +27,27 @@ offset_bottom = 31.0
 grow_horizontal = 2
 alignment = 1
 
-[node name="Options1" type="HBoxContainer" parent="SFXOptions"]
+[node name="SFXOptions1" type="HBoxContainer" parent="SFXOptionsList"]
 layout_mode = 2
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="Label" type="Label" parent="SFXOptions/Options1"]
+[node name="Label" type="Label" parent="SFXOptionsList/SFXOptions1"]
 layout_mode = 2
 text = "Sound effect 1:"
 
-[node name="PickSFXButton" type="Button" parent="SFXOptions/Options1"]
+[node name="PickSFXButton" type="Button" parent="SFXOptionsList/SFXOptions1"]
 layout_mode = 2
 text = " Pick SFX "
 
-[node name="TogglableCheck" type="CheckBox" parent="SFXOptions/Options1"]
+[node name="SingularCheckBox" type="CheckBox" parent="SFXOptionsList/SFXOptions1"]
 layout_mode = 2
-text = "Togglable"
+tooltip_text = "Input helpful description here"
+text = "Playable once"
 
-[node name="LoopCheck" type="CheckBox" parent="SFXOptions/Options1"]
+[node name="LoopCheckBox" type="CheckBox" parent="SFXOptionsList/SFXOptions1"]
 layout_mode = 2
+disabled = true
 text = "Loop"
 
 [node name="Options" type="HBoxContainer" parent="."]
