@@ -1,0 +1,98 @@
+[gd_scene load_steps=9 format=3 uid="uid://dlvd60ndwsxeq"]
+
+[ext_resource type="FontFile" uid="uid://civy15hq2wnwg" path="res://resources/graphics/basefont2.png" id="1_4g5dx"]
+[ext_resource type="Script" path="res://scripts/SfxOptions.cs" id="1_kvvbu"]
+[ext_resource type="Theme" uid="uid://wxv3lqylh25j" path="res://resources/graphics/themes/button_theme.tres" id="2_ca0li"]
+
+[sub_resource type="FontVariation" id="FontVariation_2y7d3"]
+base_font = ExtResource("1_4g5dx")
+spacing_glyph = -2
+spacing_space = -4
+
+[sub_resource type="SystemFont" id="SystemFont_hawpk"]
+font_names = PackedStringArray("Consolas")
+subpixel_positioning = 0
+
+[sub_resource type="FontVariation" id="FontVariation_wdmb8"]
+base_font = ExtResource("1_4g5dx")
+spacing_glyph = -4
+spacing_space = -6
+
+[sub_resource type="FontVariation" id="FontVariation_03ixv"]
+base_font = ExtResource("1_4g5dx")
+spacing_glyph = -2
+spacing_space = -4
+
+[sub_resource type="FontVariation" id="FontVariation_y7bx6"]
+base_font = ExtResource("1_4g5dx")
+spacing_glyph = -2
+spacing_space = -4
+
+[node name="SFXOptions1" type="VBoxContainer"]
+offset_right = 373.0
+offset_bottom = 99.0
+theme_override_constants/separation = 4
+script = ExtResource("1_kvvbu")
+metadata/_edit_group_ = true
+
+[node name="FileDialog" type="FileDialog" parent="."]
+title = "Open a File"
+position = Vector2i(0, 36)
+size = Vector2i(352, 180)
+ok_button_text = "Open"
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.mp3;Audio files")
+use_native_dialog = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_2y7d3")
+theme_override_font_sizes/font_size = 32
+text = "Sound effect 0
+"
+horizontal_alignment = 1
+
+[node name="PathPreview" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="PreviewLineEdit" type="LineEdit" parent="PathPreview"]
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Test"
+theme_override_fonts/font = SubResource("SystemFont_hawpk")
+placeholder_text = "TBA"
+editable = false
+context_menu_enabled = false
+middle_mouse_paste_enabled = false
+select_all_on_focus = true
+
+[node name="PickSFXButton" type="Button" parent="PathPreview"]
+layout_mode = 2
+theme = ExtResource("2_ca0li")
+theme_override_fonts/font = SubResource("FontVariation_wdmb8")
+theme_override_font_sizes/font_size = 20
+text = " Pick SFX "
+
+[node name="Options" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="SingularCheckBox" type="CheckBox" parent="Options"]
+layout_mode = 2
+tooltip_text = "Input helpful description here"
+theme_override_fonts/font = SubResource("FontVariation_03ixv")
+theme_override_font_sizes/font_size = 20
+text = "Playable once"
+
+[node name="LoopCheckBox" type="CheckBox" parent="Options"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_y7bx6")
+theme_override_font_sizes/font_size = 20
+disabled = true
+text = "Loop"
+
+[node name="HSeparator" type="HSeparator" parent="."]
+layout_mode = 2

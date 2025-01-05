@@ -11,11 +11,14 @@ public partial class SoundBoard : Panel
     Button muteButton, settingsButton;
     public override void _Ready()
     {
+        ConfigFileHandler.LoadConfigFile();
         // for debugging only
         ConfigFileHandler.SetSFXPath(1, @"C:\Users\cebda\Music\sfx\Windows - connect.mp3");
         ConfigFileHandler.SetSFXPath(2, @"C:\Users\cebda\Music\sfx\Windows - disconnect.mp3");
         ConfigFileHandler.SetSFXPath(3, @"C:\Users\cebda\Music\インソムニア (INSOMNIA) Eve Music Video.mp3");
         ConfigFileHandler.SetSFXPath(4, @"C:\Users\cebda\Music\Homelander Theme The Boys.mp3");
+
+        ConfigFileHandler.ShowOptions();
 
         audio = GetNode<Node>("Audio");
 

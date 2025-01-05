@@ -7,16 +7,16 @@ public partial class ConfigFileHandler : Node
 {
     private const string CONFIG_PATH = "user://", CONFIG_FILE_NAME = "config.cfg",
     CONFIG_FILE_PATH = CONFIG_PATH + CONFIG_FILE_NAME;
+    private static ConfigFile config = new ConfigFile();
     public static string[] SFXFilePaths = new string[9];
     public static Dictionary<string, bool>[] SFXOptions = new Dictionary<string, bool>[9];
 
     public override void _Ready()
     {
         //CreateConfigFile();
-        LoadConfigFile();
     }
 
-    public static void LoadConfigFile(){
+    public static void LoadConfigFile(bool printResult = false){
         // check if config file exists
         if( !Godot.FileAccess.FileExists(CONFIG_FILE_PATH)){
             GD.Print("Config file not found. Creating a new one...");
@@ -32,8 +32,6 @@ public partial class ConfigFileHandler : Node
         }
 
         for(int i=0; i<9; i++){
-            ConfigFile config = new ConfigFile();
-
             var result = config.Load(CONFIG_FILE_PATH);
             if(result != Error.Ok){
                 GD.PushError($"{result}. Cannot load config file.");
@@ -45,27 +43,50 @@ public partial class ConfigFileHandler : Node
                 {"Singular", (bool)config.GetValue($"SFX {i+1}", "SINGULAR")},
                 {"Loop", (bool)config.GetValue($"SFX {i+1}", "LOOP")}
             };
+            if(printResult) ShowOption(i+1);
+        }
+    }
+    public static void SaveToConfigFile(){
+        for(int i=0; i<9; i++){
+            config.SetValue($"SFX {i+1}", "FILE_PATH", SFXFilePaths[i]);
+            config.SetValue($"SFX {i+1}", "SINGULAR", SFXOptions[i]["Singular"]);
+            config.SetValue($"SFX {i+1}", "LOOP", SFXOptions[i]["Loop"]);
+        }
+
+        var result = config.Save(CONFIG_FILE_PATH);
+        if(result != Error.Ok){
+            GD.PushError($"{result}. Cannot save config file.");
+            return;
+        }
+        GD.Print("Config file successfully saved.");
+    }
+    public static void ShowOptions(){
+        for(int i=0; i<9; i++){
             GD.Print($"--------SFX{i+1}--------");
             GD.Print($"File path: {SFXFilePaths[i]}");
             GD.Print($"Singular: {SFXOptions[i]["Singular"]}, Loop: {SFXOptions[i]["Loop"]}");
             GD.Print("--------------------");
         }
     }
-    // no longer for debugging only
+    public static void ShowOption(int index){
+        if( !(index >= 1 && index <= 9) ){
+            throw new Exception("Index must be between 0 and 8.");
+        }
+        GD.Print($"--------SFX{index}--------");
+        GD.Print($"File path: {SFXFilePaths[index-1]}");
+        GD.Print($"Singular: {SFXOptions[index-1]["Singular"]}, Loop: {SFXOptions[index-1]["Loop"]}");
+        GD.Print("--------------------");
+    }
+    // again for debugging purposes, kinda
     public static void SetSFXPath(int option, string value){
         if( !(option >= 1 && option <= 9) ){
             throw new Exception("Option must be between 0 and 8.");
         }
-        ConfigFile config = new ConfigFile();
 
-        var result = config.Load(CONFIG_FILE_PATH);
-        if(result != Error.Ok){
-            GD.PushError($"{result}. Cannot load config file while setting value.");
-            return;
-        }
+        LoadConfigFile();
         
         config.SetValue($"SFX {option}", "FILE_PATH", value);
-        result = config.Save(CONFIG_FILE_PATH);
+        var result = config.Save(CONFIG_FILE_PATH);
         if(result != Error.Ok){
             GD.PushError($"{result}. Cannot save config file while setting value.");
             return;

@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://b464ucdbrqf37"]
+[gd_scene load_steps=6 format=3 uid="uid://b464ucdbrqf37"]
 
 [ext_resource type="Script" path="res://scripts/Settings.cs" id="1_3ahse"]
+[ext_resource type="PackedScene" uid="uid://dlvd60ndwsxeq" path="res://scenes/sfx_options.tscn" id="2_4hupb"]
 [ext_resource type="FontFile" uid="uid://y7vkond0663t" path="res://resources/graphics/basefont.png" id="2_jhocp"]
 
 [sub_resource type="FontVariation" id="FontVariation_xops0"]
@@ -19,36 +20,25 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3ahse")
 
-[node name="SFXOptionsList" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 31.0
-grow_horizontal = 2
-alignment = 1
-
-[node name="SFXOptions1" type="HBoxContainer" parent="SFXOptionsList"]
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 2
-theme_override_constants/separation = 10
-alignment = 1
+anchor_left = 0.033
+anchor_top = 0.025
+anchor_right = 0.967
+anchor_bottom = 0.025
+offset_left = 0.16
+offset_right = -0.160034
+offset_bottom = 432.0
+horizontal_scroll_mode = 0
 
-[node name="Label" type="Label" parent="SFXOptionsList/SFXOptions1"]
+[node name="SFXOptionsList" type="VBoxContainer" parent="ScrollContainer"]
 layout_mode = 2
-text = "Sound effect 1:"
+size_flags_horizontal = 3
+theme_override_constants/separation = 24
+metadata/_edit_group_ = true
 
-[node name="PickSFXButton" type="Button" parent="SFXOptionsList/SFXOptions1"]
+[node name="SFXOptions1" parent="ScrollContainer/SFXOptionsList" instance=ExtResource("2_4hupb")]
 layout_mode = 2
-text = " Pick SFX "
-
-[node name="SingularCheckBox" type="CheckBox" parent="SFXOptionsList/SFXOptions1"]
-layout_mode = 2
-tooltip_text = "Input helpful description here"
-text = "Playable once"
-
-[node name="LoopCheckBox" type="CheckBox" parent="SFXOptionsList/SFXOptions1"]
-layout_mode = 2
-disabled = true
-text = "Loop"
 
 [node name="Options" type="HBoxContainer" parent="."]
 custom_minimum_size = Vector2(418, 128)
