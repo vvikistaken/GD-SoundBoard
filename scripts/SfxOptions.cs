@@ -26,6 +26,8 @@ public partial class SfxOptions : VBoxContainer
         pickSFXButton.Pressed += PickSFX;
         singularCheckBox.Toggled += CheckIfSingular;
         loopCheckBox.Toggled += CheckIfLooping;
+
+        LoadConfigFileValues();
     }
     public void LoadConfigFileValues(){
         previewLineEdit.Text = ConfigFileHandler.SFXFilePaths[Index-1];
