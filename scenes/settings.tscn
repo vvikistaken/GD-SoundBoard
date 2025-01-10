@@ -40,7 +40,7 @@ metadata/_edit_group_ = true
 [node name="SFXOptions1" parent="ScrollContainer/SFXOptionsList" instance=ExtResource("2_4hupb")]
 layout_mode = 2
 
-[node name="Options" type="HBoxContainer" parent="."]
+[node name="Actions" type="HBoxContainer" parent="."]
 custom_minimum_size = Vector2(418, 128)
 layout_mode = 1
 anchors_preset = -1
@@ -58,14 +58,14 @@ theme_override_constants/separation = 16
 metadata/_edit_group_ = true
 metadata/_edit_use_anchors_ = true
 
-[node name="SettingsButton" type="Button" parent="Options"]
+[node name="LeaveButton" type="Button" parent="Actions"]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 text = "tba"
 icon_alignment = 1
 expand_icon = true
 
-[node name="ApplyButton" type="Button" parent="Options"]
+[node name="ApplyButton" type="Button" parent="Actions"]
 custom_minimum_size = Vector2(272, 128)
 layout_mode = 2
 theme = SubResource("Theme_sbyv4")

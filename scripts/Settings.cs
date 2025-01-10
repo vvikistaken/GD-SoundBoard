@@ -7,19 +7,24 @@ public partial class Settings : Panel
     PackedScene sfxOptionsScene = GD.Load<PackedScene>("res://scenes/sfx_options.tscn");
     VBoxContainer sfxOptionsList;
     SfxOptions[] sfxOptions = new SfxOptions[9];
-    Button applyButton;
+    Button leaveButton, applyButton;
     public override void _Ready()
     {
         ConfigFileHandler.LoadConfigFile();
 
         sfxOptionsList = GetNode<VBoxContainer>("ScrollContainer/SFXOptionsList");
-        applyButton = GetNode<Button>("Options/ApplyButton");
+        leaveButton = GetNode<Button>("Actions/LeaveButton");
+        applyButton = GetNode<Button>("Actions/ApplyButton");
 
-        applyButton.Pressed += () => {
-            foreach(SfxOptions sfxOption in sfxOptions){
-                ConfigFileHandler.ShowOption(sfxOption.Index);
+        applyButton.Pressed += SaveSettings;
+        leaveButton.Pressed += () => {
+            WindowScene window;
+            if( (window = GetParentOrNull<WindowScene>()) is null){
+                QueueFree();
             }
-            ConfigFileHandler.SaveToConfigFile();
+            else{
+                window.Visible = false;
+            }
         };
 
         CreateSfxOptionsList();
@@ -37,5 +42,12 @@ public partial class Settings : Panel
             sfxOptions[i] = sfxOptionsNode;
             sfxOptionsList.AddChild(sfxOptionsNode);
         }
+    }
+
+    private void SaveSettings(){
+        foreach(SfxOptions sfxOption in sfxOptions){
+                ConfigFileHandler.ShowOption(sfxOption.Index);
+            }
+            ConfigFileHandler.SaveToConfigFile();
     }
 }

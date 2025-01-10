@@ -12,11 +12,6 @@ public partial class SoundBoard : Panel
     public override void _Ready()
     {
         ConfigFileHandler.LoadConfigFile();
-        // for debugging only
-        ConfigFileHandler.SetSFXPath(1, @"C:\Users\cebda\Music\sfx\Windows - connect.mp3");
-        ConfigFileHandler.SetSFXPath(2, @"C:\Users\cebda\Music\sfx\Windows - disconnect.mp3");
-        ConfigFileHandler.SetSFXPath(3, @"C:\Users\cebda\Music\インソムニア (INSOMNIA) Eve Music Video.mp3");
-        ConfigFileHandler.SetSFXPath(4, @"C:\Users\cebda\Music\Homelander Theme The Boys.mp3");
 
         ConfigFileHandler.ShowOptions();
 
@@ -70,7 +65,21 @@ public partial class SoundBoard : Panel
     private void OpenSettings(){
         settingsButton.GrabFocus();
 
-        GD.Print("Settings button pressed");
+        WindowScene settings;
+        if( (settings = GetWindowScene()) is null){
+            GD.PrintErr($"{Name} error | There is no WindowScene");
+        }
+        else{
+            settings.Visible = !settings.Visible;
+        }
+
+    }
+    private WindowScene GetWindowScene(){
+        foreach(var child in GetChildren()){
+            if(child is WindowScene)
+                return child as WindowScene;
+        }
+        return null;
     }
     /* 
     private void OnUnfocusedKeyPressed(int vkCode){

@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://cioe4lldrg2aj"]
+[gd_scene load_steps=6 format=3 uid="uid://cioe4lldrg2aj"]
 
 [ext_resource type="Theme" uid="uid://wxv3lqylh25j" path="res://resources/graphics/themes/button_theme.tres" id="1_6q727"]
 [ext_resource type="Script" path="res://scripts/SoundBoard.cs" id="1_658p2"]
 [ext_resource type="Texture2D" uid="uid://csbcchlr0pw24" path="res://resources/graphics/setting.png" id="1_amvch"]
+[ext_resource type="PackedScene" uid="uid://ci1tlyjnv61el" path="res://scenes/window_scene.tscn" id="4_vmae1"]
+[ext_resource type="PackedScene" uid="uid://b464ucdbrqf37" path="res://scenes/settings.tscn" id="5_jfggk"]
 
 [node name="SoundBoard" type="Panel"]
 anchors_preset = 15
@@ -141,5 +143,9 @@ layout_mode = 2
 icon = ExtResource("1_amvch")
 icon_alignment = 1
 expand_icon = true
+
+[node name="WindowScene" parent="." instance=ExtResource("4_vmae1")]
+visible = false
+ContainedScene = ExtResource("5_jfggk")
 
 [node name="Audio" type="Node" parent="."]
