@@ -32,7 +32,7 @@ public partial class WindowScene : Window
 				AddChild(contained);
 			break;
 			case false:
-				if(GetChild(0) is not null)
+				if(GetChildCount() > 0)
 					GetChild(0).QueueFree();
 			break;
 		}

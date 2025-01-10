@@ -6,7 +6,6 @@ public partial class Settings : Panel
     [Export]
     PackedScene sfxOptionsScene = GD.Load<PackedScene>("res://scenes/sfx_options.tscn");
     VBoxContainer sfxOptionsList;
-    SfxOptions[] sfxOptions = new SfxOptions[9];
     Button leaveButton, applyButton;
     public override void _Ready()
     {
@@ -17,37 +16,31 @@ public partial class Settings : Panel
         applyButton = GetNode<Button>("Actions/ApplyButton");
 
         applyButton.Pressed += SaveSettings;
-        leaveButton.Pressed += () => {
-            WindowScene window;
-            if( (window = GetParentOrNull<WindowScene>()) is null){
-                QueueFree();
-            }
-            else{
-                window.Visible = false;
-            }
-        };
+        leaveButton.Pressed += ExitSettings;
 
         CreateSfxOptionsList();
     }
 
     private void CreateSfxOptionsList(){
-        foreach(SfxOptions sfxOption in sfxOptionsList.GetChildren()){
-            sfxOption.QueueFree();
+        foreach(Node child in sfxOptionsList.GetChildren()){
+            child.QueueFree();
         }
 
-        for(int i=0; i < 9; i++){
+        for(int i=1; i <= 9; i++){
             SfxOptions sfxOptionsNode = sfxOptionsScene.Instantiate<SfxOptions>();
-            sfxOptionsNode.Index = i+1;
+            sfxOptionsNode.Index = i;
             
-            sfxOptions[i] = sfxOptionsNode;
             sfxOptionsList.AddChild(sfxOptionsNode);
         }
     }
-
     private void SaveSettings(){
-        foreach(SfxOptions sfxOption in sfxOptions){
-                ConfigFileHandler.ShowOption(sfxOption.Index);
-            }
-            ConfigFileHandler.SaveToConfigFile();
+        ConfigFileHandler.SaveToConfigFile(true);
+    }
+    private void ExitSettings(){
+        WindowScene window;
+        if( (window = GetParentOrNull<WindowScene>()) is null)
+            QueueFree();
+        else
+            window.Visible = false;
     }
 }

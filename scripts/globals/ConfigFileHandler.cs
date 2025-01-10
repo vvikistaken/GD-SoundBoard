@@ -46,7 +46,9 @@ public partial class ConfigFileHandler : Node
             if(printResult) ShowOption(i+1);
         }
     }
-    public static void SaveToConfigFile(){
+    public static void SaveToConfigFile(bool printSaved = false){
+        GD.Print("Saving to config file...");
+        
         for(int i=0; i<9; i++){
             config.SetValue($"SFX {i+1}", "FILE_PATH", SFXFilePaths[i]);
             config.SetValue($"SFX {i+1}", "SINGULAR", SFXOptions[i]["Singular"]);
@@ -58,6 +60,8 @@ public partial class ConfigFileHandler : Node
             GD.PushError($"{result}. Cannot save config file.");
             return;
         }
+        if(printSaved) ShowOptions();
+
         GD.Print("Config file successfully saved.");
     }
     public static void ShowOptions(){

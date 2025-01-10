@@ -22,14 +22,19 @@ public partial class SfxOptions : VBoxContainer
 
         fileDialog.FileSelected += SetPreviewPath;
 
+        LoadConfigFileValues();
+
         label.Text = $"Sound effect {Index}";
         pickSFXButton.Pressed += PickSFX;
         singularCheckBox.Toggled += CheckIfSingular;
         loopCheckBox.Toggled += CheckIfLooping;
-
-        LoadConfigFileValues();
     }
     public void LoadConfigFileValues(){
+        if(Index < 1 || Index > 9){
+            GD.PushError($"{Name} error | Index in loading config file out of range. {Index}");
+            return;
+        }
+
         previewLineEdit.Text = ConfigFileHandler.SFXFilePaths[Index-1];
         singularCheckBox.ButtonPressed = ConfigFileHandler.SFXOptions[Index-1]["Singular"];
         loopCheckBox.ButtonPressed = ConfigFileHandler.SFXOptions[Index-1]["Loop"];
