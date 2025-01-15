@@ -31,12 +31,16 @@ public partial class SfxOptions : VBoxContainer
     }
     public void LoadConfigFileValues(){
         if(Index < 1 || Index > 9){
-            GD.PushError($"{Name} error | Index in loading config file out of range. {Index}");
+            GD.PushError($"{Name} error | Index while loading config file out of range. {Index}");
             return;
         }
 
         previewLineEdit.Text = ConfigFileHandler.SFXFilePaths[Index-1];
         singularCheckBox.ButtonPressed = ConfigFileHandler.SFXOptions[Index-1]["Singular"];
+        if(singularCheckBox.ButtonPressed)
+            loopCheckBox.Disabled = false;
+        else
+            loopCheckBox.Disabled = true;
         loopCheckBox.ButtonPressed = ConfigFileHandler.SFXOptions[Index-1]["Loop"];
     }
     // i love you copilot for this
