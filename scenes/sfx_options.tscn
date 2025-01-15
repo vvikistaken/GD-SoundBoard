@@ -82,13 +82,16 @@ alignment = 1
 
 [node name="SingularCheckBox" type="CheckBox" parent="Options"]
 layout_mode = 2
-tooltip_text = "If true, doesn't allow for overlapping. Useful for music tracks instead of sound effects."
+tooltip_text = "If true, doesn't allow for overlapping.
+Useful for music tracks instead of sound effects."
 theme_override_fonts/font = SubResource("FontVariation_03ixv")
 theme_override_font_sizes/font_size = 20
-text = "Playable once"
+text = "Togglable"
 
 [node name="LoopCheckBox" type="CheckBox" parent="Options"]
 layout_mode = 2
+tooltip_text = "Loops sound effect.
+Only work when prevoius is selected."
 theme_override_fonts/font = SubResource("FontVariation_y7bx6")
 theme_override_font_sizes/font_size = 20
 disabled = true

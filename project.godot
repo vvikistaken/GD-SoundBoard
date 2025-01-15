@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="SoundBoard"
+config/description="My handmade soundboard I made because I was bored"
+config/version="0.1.0"
 run/main_scene="res://scenes/sound_board.tscn"
 config/features=PackedStringArray("4.3", "C#", "GL Compatibility")
-config/icon="res://resources/graphics/icon.svg"
+boot_splash/image="res://resources/graphics/megaphone.png"
+boot_splash/use_filter=false
+config/icon="res://resources/graphics/megaphone.png"
 
 [audio]
 

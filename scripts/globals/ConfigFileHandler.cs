@@ -106,6 +106,8 @@ public partial class ConfigFileHandler : Node
             config.SetValue($"SFX {i+1}", "LOOP", false);
         }
 
+        config.SetValue("SFX 1", "FILE_PATH", "vine-boom.mp3");
+
         var result = config.Save(CONFIG_FILE_PATH);
         return result;
     }

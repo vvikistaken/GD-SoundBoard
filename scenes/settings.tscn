@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://b464ucdbrqf37"]
+[gd_scene load_steps=7 format=3 uid="uid://b464ucdbrqf37"]
 
 [ext_resource type="Script" path="res://scripts/Settings.cs" id="1_3ahse"]
 [ext_resource type="PackedScene" uid="uid://dlvd60ndwsxeq" path="res://scenes/sfx_options.tscn" id="2_4hupb"]
 [ext_resource type="FontFile" uid="uid://y7vkond0663t" path="res://resources/graphics/basefont.png" id="2_jhocp"]
+[ext_resource type="Texture2D" uid="uid://f23c6nmqvupx" path="res://resources/graphics/back.png" id="3_il633"]
 
 [sub_resource type="FontVariation" id="FontVariation_xops0"]
 base_font = ExtResource("2_jhocp")
@@ -61,7 +62,7 @@ metadata/_edit_use_anchors_ = true
 [node name="LeaveButton" type="Button" parent="Actions"]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
-text = "tba"
+icon = ExtResource("3_il633")
 icon_alignment = 1
 expand_icon = true
 

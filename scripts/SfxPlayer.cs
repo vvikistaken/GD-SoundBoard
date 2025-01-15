@@ -12,6 +12,10 @@ public partial class SfxPlayer : AudioStreamPlayer
     public void PlaySFXviaFileName(string filePath)
     {
         AudioStream sound;
+        if(filePath == string.Empty){
+            GD.Print("No file path provided");
+            return;
+        }
         if(filePath.Contains("\\") || filePath.Contains("/")){
             switch(Path.GetExtension(filePath)){
                 case ".mp3":

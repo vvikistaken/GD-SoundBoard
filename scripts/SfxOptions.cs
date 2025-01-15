@@ -35,7 +35,7 @@ public partial class SfxOptions : VBoxContainer
             return;
         }
 
-        previewLineEdit.Text = ConfigFileHandler.SFXFilePaths[Index-1];
+        SetPreviewPath(ConfigFileHandler.SFXFilePaths[Index-1]);
         singularCheckBox.ButtonPressed = ConfigFileHandler.SFXOptions[Index-1]["Singular"];
         if(singularCheckBox.ButtonPressed)
             loopCheckBox.Disabled = false;
